@@ -115,8 +115,8 @@
 			.disponibles-title
 				h4 {{ 'DISPONIBLES_TL' | translate }}: {{SocketClientes.registrados_no_logged.length}}  
 
-				ul
-					li.md-whiteframe-1dp.clt-pc.unselectable(ng-repeat="cliente in registrados_no_logged() " ng-click="clickedClt($event, cliente)" 
+				ul(layout="row" layout-wrap)
+					li.md-whiteframe-1dp.clt-pc.unselectable(ng-repeat="cliente in registrados_no_logged() " layout="row" ng-click="clickedClt($event, cliente)" style="width: auto;" 
 						ng-dblclick="showSidenavSelectUsu(cliente)" ng-mouseover="sobreClt($event, cliente)" ng-class="{'seleccionado': cliente.seleccionado, 'cursor-unselect':deseleccionar }")
 						
 						.info 
@@ -192,7 +192,7 @@
 
 
 		.message-form
-			form(ng-submit="enviarMensaje()")
+			form(ng-submit="enviarMensajeTo()")
 				.row
 					.col-lg-10.col-md-9.col-sm-9.col-xs-12
 						md-input-container.md-block(flex-gt-sm style="margin-bottom: -20px; padding-bottom: 0px")
@@ -246,6 +246,10 @@ sidenav-edit-usu-dir
 							a(ng-click="selec_opc_in_question(2)") Seleccionar C
 						li
 							a(ng-click="selec_opc_in_question(3)") Seleccionar D
+						li
+							a(ng-click="selec_opc_in_question(4)") Seleccionar E
+						li
+							a(ng-click="selec_opc_in_question(5)") Seleccionar F
 						li.divider
 						li
 							a(ng-click="sc_reveal_answer()") Revelar correcta
