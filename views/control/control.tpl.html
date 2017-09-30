@@ -63,7 +63,7 @@
             <h5 style="margin-top: 2px" class="name text-center nombresellipsis">{{cliente.user_data.nombres}} {{cliente.user_data.apellidos}}
               <md-tooltip>{{cliente.user_data.username}}</md-tooltip>
             </h5>
-            <div ng-show="cliente.user_data.entidad.alias" class="alias-enti">{{cliente.user_data.entidad.alias}}</div>
+            <div ng-show="cliente.user_data.entidad.alias" class="alias-enti"> <span ng-show="cliente.respondidas" style="font-weight: bold">({{ cliente.respondidas }}) </span><span>{{cliente.user_data.entidad.alias}}</span></div>
             <h6 style="margin: 0px;">{{ cliente.nombre_punto }}</h6>
           </div>
           <div class="opts-clt btn-group">
@@ -122,7 +122,7 @@
         <ul layout="row" layout-wrap>
           <li ng-repeat="cliente in sin_registrar() " layout="row" ng-click="clickedClt($event, cliente)" style="width: auto;" ng-dblclick="showSidenavSelectUsu(cliente)" ng-mouseover="sobreClt($event, cliente)" ng-class="{'seleccionado': cliente.seleccionado, 'cursor-unselect':deseleccionar }" class="md-whiteframe-1dp clt-pc unselectable">
             <div flex class="info"> 
-              <h5 ng-model="cliente.nombre_punto" contenteditable guardar-nombre-punto="guardarNombrePunto" style="margin: 5px 0px;">{{ cliente.nombre_punto }} 
+              <h5 ng-model="cliente.nombre_punto" contenteditable guardar-nombre-punto="guardarNombrePunto" style="margin: 5px 0px;"> <span>{{ cliente.nombre_punto }} </span><span ng-show="cliente.respondidas">({{ cliente.respondidas }}) </span>
                 <md-tooltip>{{ 'NOMBRE_DE_PUNTO_TL' | translate }} </md-tooltip>
               </h5>
               <div ng-show="cliente.user_data.entidad.alias" class="alias-enti">{{cliente.user_data.entidad.alias}}</div>
